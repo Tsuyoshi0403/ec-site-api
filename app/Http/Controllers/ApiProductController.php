@@ -40,7 +40,7 @@ class ApiProductController extends Controller
             'message' => "Product Created successfully!",
             'product' => $product
         ], 200);
-     }
+    }
 
 
     /**
