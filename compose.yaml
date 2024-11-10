@@ -47,6 +47,19 @@ services:
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
       - 3306:3306
+
+  # phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_ARBITRARY: ${PMA_ARBITRARY}
+      PMA_HOSTS: ${DB_HOST}
+      PMA_USER: ${DB_USERNAME}
+      PMA_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
       
 volumes:
   # 名前付きボリュームの作成
