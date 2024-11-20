@@ -7,4 +7,5 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('products', ApiProductController::class);
 });
-Route::post("login", [UserController::class,'index']);
+Route::post('old-login', [UserController::class,'index']);
+Route::post('login', [UserController::class,'login']);
