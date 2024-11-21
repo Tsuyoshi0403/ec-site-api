@@ -36,7 +36,7 @@ use App\Services\Utilities\AccessClientUtil;
  * @method static BaseBuilder|LogLoginLockout whereUserAgent($value)
  * @mixin \Eloquent
  */
-class LogLoginLockout extends ModelBase
+class LogLoginLockout extends BaseModel
 {
     /** @var string テーブル名 */
     protected $table = 'log_login_lockout';

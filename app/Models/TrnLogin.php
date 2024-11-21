@@ -29,7 +29,7 @@ namespace App\Models;
  * @method static ShardBuilder|TrnLogin whereValue($value)
  * @mixin \Eloquent
  */
-class TrnLogin extends ModelBase
+class TrnLogin extends BaseModel
 {
     /** @var string テーブル名 */
     protected $table = 'trn_login';

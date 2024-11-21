@@ -26,7 +26,7 @@ use Illuminate\Support\Carbon;
  * @method static BaseBuilder|TrnLoginFailed whereUpdatedTime($value)
  * @mixin \Eloquent
  */
-class TrnLoginFailed extends ModelBase
+class TrnLoginFailed extends BaseModel
 {
 
     /** @var string テーブル名 */

@@ -65,7 +65,7 @@ namespace App\Models;
  * @method static \App\Models\ShardBuilder|MstEmployee whereConfirmServiceTermsVersion($value)
  * @mixin \Eloquent
  */
-class MstCustomer extends ModelBase
+class MstCustomer extends BaseModel
 {
     /** @var string テーブル名 */
     protected $table = 'mst_customer';

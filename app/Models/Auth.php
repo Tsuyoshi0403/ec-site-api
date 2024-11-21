@@ -20,7 +20,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
  * @method static BaseBuilder|Auth softDelete()
  * @mixin \Eloquent
  */
-class Auth extends ModelBase implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
+class Auth extends BaseModel implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
     use Authenticatable;
     use Authorizable;
