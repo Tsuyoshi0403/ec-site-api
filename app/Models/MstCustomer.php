@@ -63,6 +63,10 @@ namespace App\Models;
  * @method static \Database\Factories\MstEmployeeFactory factory($count = null, $state = [])
  * @method static \App\Models\ShardBuilder|MstEmployee whereConfirmPrivacyPolicyVersion($value)
  * @method static \App\Models\ShardBuilder|MstEmployee whereConfirmServiceTermsVersion($value)
+ * @property int $customerId 顧客ID
+ * @property int $storeId 店舗ID
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|MstCustomer whereCustomerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|MstCustomer whereStoreId($value)
  * @mixin \Eloquent
  */
 class MstCustomer extends BaseModel

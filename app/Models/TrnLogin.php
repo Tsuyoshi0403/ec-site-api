@@ -27,6 +27,9 @@ namespace App\Models;
  * @method static ShardBuilder|TrnLogin whereLoginKind($value)
  * @method static ShardBuilder|TrnLogin whereUpdatedTime($value)
  * @method static ShardBuilder|TrnLogin whereValue($value)
+ * @property int $storeId 店舗ID
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TrnLogin whereCustomerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TrnLogin whereStoreId($value)
  * @mixin \Eloquent
  */
 class TrnLogin extends BaseModel
