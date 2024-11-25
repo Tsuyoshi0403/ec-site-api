@@ -8,6 +8,8 @@ namespace App\Services\Kinds;
 class ErrorCode
 {
     const ILLEGAL_PARAM = 100004;
+    const VALIDATE_ERROR_REQUEST_PARAM = 100002;
+    const HAVE_NO_AUTHORITY = 100006;
     const LOGIN_FAILED = 100008;
     const PASSWORD_RESET_TOKEN_FAILED = 100010;
     const PASSWORD_PATTERN_FAILED = 100014;
@@ -21,6 +23,8 @@ class ErrorCode
 
     public static $conditions = [
         self::ILLEGAL_PARAM => 'ログイン時にユーザ情報が無い時のエラー',
+        self::VALIDATE_ERROR_REQUEST_PARAM => 'リクエストパラメータのバリデーションエラー',
+        self::HAVE_NO_AUTHORITY => '使用権限の無い機能を実行しようとしたときのエラー',
         self::LOGIN_FAILED => 'ID/PASSログイン時に入力されたID、パスワードが間違えている場合',
         self::PASSWORD_RESET_TOKEN_FAILED => '',
         self::PASSWORD_PATTERN_FAILED => '',

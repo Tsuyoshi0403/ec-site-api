@@ -58,11 +58,23 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'docker' => [
+            'driver' => 'stack',
+            'channels' => ['single', 'stderr'],
+            'ignore_exceptions' => false,
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
             'replace_placeholders' => true,
+        ],
+
+        'res_ex' => [
+            'driver' => 'single',
+            'path' => env('LOG_PATH', storage_path('logs/')) . env('LOG_RES_EX_NAME', 'res_ex.log'),
+            'level' => 'debug',
         ],
 
         'daily' => [
