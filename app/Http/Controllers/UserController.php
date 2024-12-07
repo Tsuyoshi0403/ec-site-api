@@ -4,11 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Services\LoginService;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    //
+    /**
+     * ログイン処理
+     * @param Request $req
+     * @return JsonResponse
+     * @throws Throwable
+     */
+    public function login(Request $req)
+    {
+        return $this->getResponse((new LoginService($req))->login());
+    }
+
 
     public function index(Request $request)
     {

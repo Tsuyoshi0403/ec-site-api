@@ -27,12 +27,38 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: Asia/Tokyo
     volumes:
       # ./フォルダをコンテナ内の/var/www/htmlにマウント
       - ./:/var/www/html
     depends_on:
       - mysql
-      
+
+  #　WorkerServer
+  worker:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    command: php /var/www/html/artisan queue:listen
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: Asia/Tokyo
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+    - mysql
+    - redis
+    privileged: true
+  
+  #　Redis
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  
   # MySQL
   mysql:
     image: mysql:9.1.0
@@ -41,6 +67,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: Asia/Tokyo
     volumes:
       # 名前付きボリュームを MySQL コンテナに紐づける
       - mysqldata:/var/lib/mysql
