@@ -8,7 +8,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
 
 class ErrorLogJob implements ShouldQueue
 {
@@ -35,8 +34,6 @@ class ErrorLogJob implements ShouldQueue
      */
     public function handle()
     {
-        Log::info('handle実装');
-
         LogError::create([
             'customerId' => $this->insertData['customerId'] ?? 0,
             'type' => $this->insertData['type'] ?? '',

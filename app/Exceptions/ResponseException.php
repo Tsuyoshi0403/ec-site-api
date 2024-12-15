@@ -5,13 +5,18 @@ namespace App\Exceptions;
 use App\Jobs\ErrorLogJob;
 use App\Services\Kinds\ErrorCode;
 use App\Services\Managers\UserManager;
+use App\Services\MessageService;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
-
 class ResponseException extends Exception
 {
+    /** @var array ポップアップ時の警告メッセージ一覧 */
+    private $alerts;
+    /** @var bool レスポンスにalertsの内容を追加するかどうか */
+    private $warnings;
+    
     /**
      * ResponseException constructor.
      * @param $message
@@ -19,10 +24,12 @@ class ResponseException extends Exception
      * @param array $alerts
      * @param array $warnings
      */
-    public function __construct($message, $code)
+    public function __construct($message, $code, $alerts = [], $warnings = [])
     {
         // ハンドルファイルを追加する
         parent::__construct($message, $code);
+        $this->alerts = $alerts;
+        $this->warnings = $warnings;
     }
 
     /**
@@ -67,11 +74,6 @@ class ResponseException extends Exception
             }
         }
         $customerId = 0;
-        
-        // TODO: ResponseException実装後、再度動作しているか確認する
-        // if (auth()->check()) {
-        //     $customerId = UserManager::getAuth()->customerId;
-        // }
 
         //  TODO: ResponseException実装後、再度動作しているか確認する
         // ヘルパーチェック
@@ -84,5 +86,34 @@ class ResponseException extends Exception
         $logContext['code'] = $e->getCode();
         $logContext['trace'] = $e->getTraceAsString();
         return $logContext;
+    }
+
+    /**
+     * ポップアップ情報取得
+     * @return array
+     */
+    public function getErrorResponse()
+    {
+        $result = [];
+        // ポップアップではない場合、エラートースト情報をレスポンスに設定する
+        $message = MessageService::getErrorMessage($this->getCode());
+        $message = 'code:[' . $this->getCode() . ']\n' . $message;
+
+        if (!empty($this->alerts)) {
+            $message .= "\n" . implode("\n", $this->alerts);
+        }
+
+        $result['error'] = [
+            'code' => $this->getCode(),
+            'message' => $message,
+            'warnings' => $this->warnings,
+        ];
+        
+        // 本番環境ではトレースは要らない
+        if (env('APP_ENV') != 'prd') {
+            $result['error']['stackMessage'] = $this->getMessage();
+            $result['error']['stackTrace'] = $this->getTraceAsString();
+        }
+        return $result;
     }
 }

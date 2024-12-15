@@ -19,6 +19,8 @@ class ErrorCode
     const LOGIN_FAILED_NONE_ID = 100018;
     const LOGIN_FAILED_DIFFERENT_PASS = 100019;
     const LOGIN_LOCKOUT = 100042;
+    const ILLEGAL_VALUE_OBJECT_PARAM = 100051;
+    const COLUMN_NOT_FOUND_ERROR = 100052;
     const UNDEFINED_ERROR = 999999;
 
     public static $conditions = [
@@ -34,6 +36,8 @@ class ErrorCode
         self::LOGIN_FAILED_NONE_ID => '指定されたIDが存在しない場合',
         self::LOGIN_FAILED_DIFFERENT_PASS => '指定したパスワードが間違っている場合',
         self::LOGIN_LOCKOUT => 'ログインロックアウトが発生している時のエラー',
+        self::ILLEGAL_VALUE_OBJECT_PARAM => '入力値に誤りがあり、ValueObjectで弾かれた時にエラー',
+        self::COLUMN_NOT_FOUND_ERROR => '指定されたカラムが見つからない場合のエラー',
         self::UNDEFINED_ERROR => '想定外のエラー',
     ];
 }
