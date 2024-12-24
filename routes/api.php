@@ -12,4 +12,5 @@ Route::post('old-login', [UserController::class,'index']);
 
 Route::group(['middleware' => 'api'], function () {
     Route::post('login', [UserController::class,'login']);
+    Route::post('refresh', [UserController::class, 'refreshToken']);
 });
