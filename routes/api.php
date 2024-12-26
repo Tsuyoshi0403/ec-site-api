@@ -15,4 +15,5 @@ Route::group(['middleware' => 'api'], function () {
     Route::post('login', [UserController::class,'login']);
     Route::post('refresh', [UserController::class, 'refreshToken']);
     Route::post('account/sign-up', [AccountController::class, 'signUp']);
+    Route::post('account/verify', [AccountController::class, 'verity']);
 });
