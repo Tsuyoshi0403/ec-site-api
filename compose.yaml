@@ -87,6 +87,15 @@ services:
       - "8080:80"
     depends_on:
       - mysql
+  
+  # MailHog
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - target: 8025
+        published: ${MAILHOG_PUBLISHED_PORT:-8025}
+        protocol: tcp
+        mode: host
       
 volumes:
   # 名前付きボリュームの作成
