@@ -30,4 +30,16 @@ class PasswordService
         }
         return true;
     }
+
+    /**
+     * パスワードのパターンがあっているかチェック
+     * ※英字/数字/記号を2種類以上含む8文字以上32文字以下
+     * @param string $password パスワード
+     * @return false
+     */
+    public static function checkPasswordPattern($password)
+    {
+        $pattern = '#^((?=.*[a-zA-Z])(?=.*[0-9])|(?=.*[a-zA-Z])(?=.*[!-/:-@¥[-`{-~])|(?=.*[0-9])(?=.*[a-zA-Z])|(?=.*[0-9])(?=.*[!-/:-@¥[-`{-~])|(?=.*[!-/:-@¥[-`{-~])(?=.*[a-zA-Z])|(?=.*[!-/:-@¥[-`{-~])(?=.*[0-9]))([a-zA-Z0-9!-/:-@¥[-`{-~]){8,}$#';
+        return (bool)preg_match($pattern, $password);
+    }
 }

@@ -21,6 +21,7 @@ class ErrorCode
     const LOGIN_LOCKOUT = 100042;
     const ILLEGAL_VALUE_OBJECT_PARAM = 100051;
     const COLUMN_NOT_FOUND_ERROR = 100052;
+    const SIGN_UP_NOT_FREE_MAIL = 400000;
     const UNDEFINED_ERROR = 999999;
 
     public static $conditions = [
@@ -29,7 +30,7 @@ class ErrorCode
         self::HAVE_NO_AUTHORITY => '使用権限の無い機能を実行しようとしたときのエラー',
         self::LOGIN_FAILED => 'ID/PASSログイン時に入力されたID、パスワードが間違えている場合',
         self::PASSWORD_RESET_TOKEN_FAILED => '',
-        self::PASSWORD_PATTERN_FAILED => '',
+        self::PASSWORD_PATTERN_FAILED => 'パスワード形式が不正した際のエラー',
         self::BEFORE_STORE_JOIN_LOGIN => 'アカウント作成より前にログインした時のエラー',
         self::AFTER_STORE_RETIRE_LOGIN => '会員退会より後にログインした際のエラー',
         self::LOGIN_FAILED_ILLEGAL_ROUTE => '不明なログイン方法(ID/pass以外)でログインを実行された場合',
@@ -38,6 +39,7 @@ class ErrorCode
         self::LOGIN_LOCKOUT => 'ログインロックアウトが発生している時のエラー',
         self::ILLEGAL_VALUE_OBJECT_PARAM => '入力値に誤りがあり、ValueObjectで弾かれた時にエラー',
         self::COLUMN_NOT_FOUND_ERROR => '指定されたカラムが見つからない場合のエラー',
+        self::SIGN_UP_NOT_FREE_MAIL => 'フリーメールでアカウント作成した際のエラー',
         self::UNDEFINED_ERROR => '想定外のエラー',
     ];
 }
