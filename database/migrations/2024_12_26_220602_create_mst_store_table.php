@@ -15,6 +15,8 @@ return new class extends MigrationBase {
         Schema::create('mst_store', function (Blueprint $table) {
             $this->setTable($table);
             $table->id('storeId')->comment('店舗ID');
+            $table->string('storeNo', 32)->comment('店舗番号');
+            $table->string('domain', 256)->comment('ドメイン');
             $table->string('name', 256)->comment('店舗名');
             $this->defaults(false);
         });

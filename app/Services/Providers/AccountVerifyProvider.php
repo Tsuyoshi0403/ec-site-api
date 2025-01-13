@@ -135,6 +135,7 @@ class AccountVerifyProvider
             'name' => $this->getParamVal('lastName') . ' ' . $this->getParamVal('firstName'),
             'furigana' => '',
             'mail' => $this->getParamVal('mail'),
+            'storeId' => $this->storeId,
         ]);
         TrnLogin::create([
             'customerId' => $this->customerId,
