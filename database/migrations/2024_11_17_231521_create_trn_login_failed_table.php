@@ -15,7 +15,7 @@ return new class extends MigrationBase {
             $table->id()->comment('ID');
             $table->string('mail', 256)->comment('メールアドレス');
             $table->unsignedBigInteger('count')->comment('連続失敗回数');
-            $this->defaults();
+            $this->defaults(false);
             $this->uniqueKey(['mail']);
         });
     }

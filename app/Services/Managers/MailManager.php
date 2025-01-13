@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Mail;
  */
 class MailManager
 {
+    /** @var string お知らせメールアドレス */
+    public const INFO_MAIL_ADDRESS = 'dev-no-reply-info@example.com';    
     /** @var string メールアドレス形式の正規表現 */
     private const REG = '/^[A-Za-z0-9]{1}[A-Za-z0-9_+?\/.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,256}$/';
 

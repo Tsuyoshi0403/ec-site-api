@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exceptions\ResponseException;
 use App\Services\Kinds\ErrorCode;
 use App\Services\Providers\AccountSignUpProvider;
+use App\Services\Providers\AccountVerifyProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -30,5 +31,17 @@ class AccountController extends Controller
         }
         (new AccountSignUpProvider($request->all()))->generate();
         return $this->getResponse([]);
+    }
+
+    /**
+     * アカウント認証
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function verity(Request $request)
+    {
+        return $this->getResponse([
+            'isSuccess' => (new AccountVerifyProvider($request->get('t')))->generate(),
+        ]);
     }
 }

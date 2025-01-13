@@ -22,8 +22,6 @@ class PasswordService
         
         $loginData = TrnLogin::findByCustomerIdAndKind($customerId, LoginKind::PASSWORD);
 
-        // TODO 一時的にパスワードをハッシュ化 検証終了後に削除する
-        $loginData->value = password_hash('password', PASSWORD_DEFAULT);
 
         if (empty($loginData) || !password_verify($password, $loginData->value)) {
             return false;
