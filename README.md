@@ -1,66 +1,49 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# プロジェクトタイトル
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+楽天市場APIを活用したECサイト
 
-## About Laravel
+## 概要
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+このプロジェクトは、楽天市場APIを活用して商品情報を取得し、ECサイトとして機能するWebアプリケーションです。
+ここ1年半のReact/TypeScriptの復習として開発を開始しました。現在はまだ開発途中ですが、これから機能を順次追加する予定です。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 各画面
+### ログイン画面
+- 認証情報（メールアドレス、パスワード）を入力し、ユーザー認証をする画面
+![Image](https://github.com/user-attachments/assets/22244dad-1dd7-4aff-9c2e-cd37f9c06f57)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### メイン画面
+- 認証が完了したユーザーが最初にアクセスする画面
+![Image](https://github.com/user-attachments/assets/d5c7231a-8fdb-47f0-ae63-8977ed73f3ff)
 
-## Learning Laravel
+### 商品検索画面
+- 検索および絞り込みした商品を表示する画面
+![Image](https://github.com/user-attachments/assets/a43cc094-81d6-44e6-8b12-f5260e0993bf)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 商品画面
+- 商品の詳細情報を表示する画面
+![Image](https://github.com/user-attachments/assets/8b3ca3b5-4c13-4315-8937-7e70fecfa4fc)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### アカウント作成画面
+- 新規ユーザーがアカウントを作成するための画面
+![Image](https://github.com/user-attachments/assets/5e17f384-e48d-4d54-865f-ed1bfbbea5aa)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 認証用メール送信画面
+- ユーザーのメールアドレスにメール認証を送信するプロセスを案内する画面
+![Image](https://github.com/user-attachments/assets/e59b5f5c-5acd-4e12-aae3-bd4384c819f7)
 
-## Laravel Sponsors
+### 認証エラー画面
+- メール認証が無効、期限切れしたことを通知する画面
+![Image](https://github.com/user-attachments/assets/50ae47da-18f7-497b-b04e-c60cbc7bad69)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 認証完了画面
+- メール認証が完了したことを通知する画面
+![Image](https://github.com/user-attachments/assets/e671b4cb-8659-4bee-9e9b-2ffc11518c23)
 
-### Premium Partners
+## 技術スタック
+- **OS**: Mac
+- **言語**: TypeScript, HTML/CSS, PHP 
+- **S/W**: React, Laravel, VSCode, Postman, MailHog
+- **M/W**: Docker 
+- **DB**: MySQL
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
